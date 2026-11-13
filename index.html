@@ -86,6 +86,9 @@
 </main>
 <footer class="wrap footer"><span><strong>INK &amp; QUILL</strong> · READ BETWEEN THE LINES</span><span>IB HUMANITIES TUITION · SINGAPORE</span><span>© <span id="year"></span> INK &amp; QUILL</span></footer>
 <script>
+// Always start at the homepage hero when the page is refreshed or reopened.
+if ('scrollRestoration' in history) history.scrollRestoration='manual';
+window.addEventListener('pageshow',()=>{if(location.hash){history.replaceState(null,'',location.pathname+location.search)}window.scrollTo(0,0)});
 const toggle=document.querySelector('.mobile-toggle'),nav=document.querySelector('.navlinks');
 function closeMenu(){nav.classList.remove('show');toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open navigation');toggle.textContent='☰'}
 toggle.addEventListener('click',()=>{const open=nav.classList.toggle('show');toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Close navigation':'Open navigation');toggle.textContent=open?'×':'☰'});
